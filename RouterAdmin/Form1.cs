@@ -143,9 +143,9 @@ namespace RouterAdmin
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            e.Cancel = true;
-            notifyIcon1.ShowBalloonTip(2000, "(๑乛◡乛๑)", "程序已隐藏到托盘区，点击图标打开", ToolTipIcon.Info);
+            //this.Hide();
+            //e.Cancel = true;
+            //notifyIcon1.ShowBalloonTip(2000, "(๑乛◡乛๑)", "程序已隐藏到托盘区，点击图标打开", ToolTipIcon.Info);
         }
 
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
