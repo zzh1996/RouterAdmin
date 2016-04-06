@@ -68,7 +68,7 @@ namespace RouterAdmin
             toolStripStatusLabel1.Text = delay.ToString("F") + "ms";
             dataGridView1.Rows.Clear();
             totaldownspeed = totalupspeed = 0;
-            for (int i = 0; i < traffic.Count; i += 7)
+            for (int i = 0, row = 0; i < traffic.Count; i += 7)
             {
                 string clientname = null;
                 for (int j = 0; j < client.Count; j += 4)
@@ -83,10 +83,11 @@ namespace RouterAdmin
                 string downspeed = unitconv(double.Parse(traffic[i + 5]));
                 string upspeed = unitconv(double.Parse(traffic[i + 6]));
                 dataGridView1.Rows.Add(clientname, traffic[i + 1], downspeed, upspeed);
-                dataGridView1.Rows[i / 7].Cells[2].Style.BackColor = ratiocolor(int.Parse(traffic[i + 5]), 512 * 1024);
-                dataGridView1.Rows[i / 7].Cells[3].Style.BackColor = ratiocolor(int.Parse(traffic[i + 6]), 64 * 1024);
+                dataGridView1.Rows[row].Cells[2].Style.BackColor = ratiocolor(int.Parse(traffic[i + 5]), 512 * 1024);
+                dataGridView1.Rows[row].Cells[3].Style.BackColor = ratiocolor(int.Parse(traffic[i + 6]), 64 * 1024);
+                row++;
                 totaldownspeed += int.Parse(traffic[i + 5]);
-                totalupspeed+=int.Parse(traffic[i + 6]);
+                totalupspeed += int.Parse(traffic[i + 6]);
             }
             checkBox1.Checked = router.GetLimitStatus();
             GenIcon();
@@ -138,7 +139,7 @@ namespace RouterAdmin
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -150,7 +151,8 @@ namespace RouterAdmin
 
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
         {
-            if(e.Button==MouseButtons.Left) {
+            if (e.Button == MouseButtons.Left)
+            {
                 this.Show();
             }
         }
