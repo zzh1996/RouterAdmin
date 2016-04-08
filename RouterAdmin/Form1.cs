@@ -45,7 +45,7 @@ namespace RouterAdmin
 
             //g.FillRectangle(Brushes.White, new Rectangle(0, 0, 32, 32));
             g.FillRectangle(Brushes.Green, new Rectangle(0, 32 - downpixel, 16, downpixel));
-            g.FillRectangle(Brushes.Yellow, new Rectangle(16, 32 - uppixel, 16, uppixel));
+            g.FillRectangle(Brushes.Red, new Rectangle(16, 32 - uppixel, 16, uppixel));
 
             g.Dispose();
             notifyIcon1.Icon = Icon.FromHandle(bmp.GetHicon());
