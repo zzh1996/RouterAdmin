@@ -24,7 +24,7 @@ namespace RouterAdmin
         {
             router = new Router();
             textBox1.Text = router.GetPhone();
-            textBox2.Focus();
+            ActiveControl = textBox2;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
